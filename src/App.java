@@ -18,17 +18,17 @@ public class App {
             System.out.print("Seleccione una opción: ");
 
             opcion = sc.nextInt();
-            sc.nextLine(); 
+            sc.nextLine();
 
             switch (opcion) {
                 case 1:
-                    
+                    seleccionarCarpeta();
                     break;
                 case 2:
-                    
+
                     break;
                 case 3:
-                
+
                     break;
                 case 4:
                     System.out.println("Saliendo del programa.");
@@ -41,4 +41,16 @@ public class App {
         sc.close();
     }
 
+    private static void seleccionarCarpeta() {
+        System.out.print("Ingrese la ruta de la carpeta: ");
+        String ruta = sc.nextLine();
+        carpetaSeleccionada = new File(ruta);
+
+        if (carpetaSeleccionada.isDirectory()) {
+            System.out.println("Carpeta seleccionada: " + carpetaSeleccionada.getAbsolutePath());
+        } else {
+            System.out.println("Ruta no válida.");
+            carpetaSeleccionada = null;
+        }
+    }
 }
