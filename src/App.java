@@ -25,7 +25,7 @@ public class App {
                     seleccionarCarpeta();
                     break;
                 case 2:
-
+                    leerArchivo();
                     break;
                 case 3:
 
