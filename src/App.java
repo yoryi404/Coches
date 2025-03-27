@@ -69,21 +69,54 @@ public class App {
             return;
         }
 
-        datosArchivo.clear(); 
+        datosArchivo.clear();
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] valores = linea.split(","); 
+                String[] valores = linea.split(",");
                 LinkedHashMap<String, String> fila = new LinkedHashMap<>();
                 for (int i = 0; i < valores.length; i++) {
-                    fila.put("Columna" + (i + 1), valores[i]); 
+                    fila.put("Columna" + (i + 1), valores[i]);
                 }
                 datosArchivo.add(fila);
             }
             System.out.println("Archivo leído correctamente");
         } catch (IOException e) {
             System.out.println("Error al leer el fichero");
+        }
+    }
+
+    private static void convertirArchivo() {
+        if (datosArchivo.isEmpty()) {
+            System.out.println("Debe leer un archivo primero.");
+            return;
+        }
+
+        System.out.print("Seleccione el formato (csv/json/xml): ");
+        String formato = sc.nextLine().toLowerCase();
+        System.out.print("Ingrese el nombre del archivo de salida: ");
+        String nombreArchivoSalida = sc.nextLine() + "." + formato;
+        File archivoSalida = new File(carpetaSeleccionada, nombreArchivoSalida);
+
+        try {
+            switch (formato) {
+                case "csv":
+
+                    break;
+                case "json":
+
+                    break;
+                case "xml":
+
+                    break;
+                default:
+                    System.out.println("Formato no válido.");
+                    return;
+            }
+            System.out.println("Archivo convertido con éxito: " + archivoSalida.getAbsolutePath());
+        } catch (Exception e) {
+            System.out.println("Error al convertir el archivo: " + e.getMessage());
         }
     }
 }
