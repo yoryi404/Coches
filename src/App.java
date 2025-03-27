@@ -53,4 +53,37 @@ public class App {
             carpetaSeleccionada = null;
         }
     }
+
+    private static void leerArchivo() {
+        if (carpetaSeleccionada == null) {
+            System.out.println("Debe seleccionar una carpeta primero");
+            return;
+        }
+
+        System.out.print("Ingrese el nombre del fichero: ");
+        String nombreArchivo = sc.nextLine();
+        File archivo = new File(carpetaSeleccionada, nombreArchivo);
+
+        if (!archivo.exists()) {
+            System.out.println("El fichero no existe");
+            return;
+        }
+
+        datosArchivo.clear(); 
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] valores = linea.split(","); 
+                LinkedHashMap<String, String> fila = new LinkedHashMap<>();
+                for (int i = 0; i < valores.length; i++) {
+                    fila.put("Columna" + (i + 1), valores[i]); 
+                }
+                datosArchivo.add(fila);
+            }
+            System.out.println("Archivo leído correctamente");
+        } catch (IOException e) {
+            System.out.println("Error al leer el fichero");
+        }
+    }
 }
