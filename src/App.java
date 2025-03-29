@@ -102,7 +102,7 @@ public class App {
         try {
             switch (formato) {
                 case "csv":
-
+                csv.escribirCSV(datosArchivo, archivoSalida);
                     break;
                 case "json":
 
