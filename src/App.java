@@ -105,7 +105,7 @@ public class App {
                 csv.escribirCSV(datosArchivo, archivoSalida);
                     break;
                 case "json":
-                csv.escribirJSON(datosArchivo, archivoSalida);
+                json.escribirJSON(datosArchivo, archivoSalida);
                     break;
                 case "xml":
                 xml.escribirXML(datosArchivo, archivoSalida);
