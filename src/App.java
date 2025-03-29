@@ -28,7 +28,7 @@ public class App {
                     leerArchivo();
                     break;
                 case 3:
-
+                    convertirArchivo();
                     break;
                 case 4:
                     System.out.println("Saliendo del programa.");
@@ -105,7 +105,7 @@ public class App {
                 csv.escribirCSV(datosArchivo, archivoSalida);
                     break;
                 case "json":
-
+                csv.escribirJSON(datosArchivo, archivoSalida);
                     break;
                 case "xml":
                 xml.escribirXML(datosArchivo, archivoSalida);
