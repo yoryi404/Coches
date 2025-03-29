@@ -108,7 +108,7 @@ public class App {
 
                     break;
                 case "xml":
-
+                xml.escribirXML(datosArchivo, archivoSalida);
                     break;
                 default:
                     System.out.println("Formato no válido.");
