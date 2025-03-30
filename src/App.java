@@ -48,9 +48,27 @@ public class App {
 
         if (carpetaSeleccionada.isDirectory()) {
             System.out.println("Carpeta seleccionada: " + carpetaSeleccionada.getAbsolutePath());
+            mostrarContenidoCarpeta();
         } else {
             System.out.println("Ruta no válida.");
             carpetaSeleccionada = null;
+        }
+    }
+
+    private static void mostrarContenidoCarpeta() {
+        File[] archivos = carpetaSeleccionada.listFiles();
+    
+        if (archivos != null && archivos.length > 0) {
+            System.out.println("Contenido de la carpeta:");
+            for (File archivo : archivos) {
+                if (archivo.isDirectory()) {
+                    System.out.println("[Carpeta] " + archivo.getName());
+                } else {
+                    System.out.println("[Archivo] " + archivo.getName());
+                }
+            }
+        } else {
+            System.out.println("La carpeta está vacía.");
         }
     }
 
@@ -73,11 +91,12 @@ public class App {
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
+            String[] encabezados = br.readLine().split(",");
             while ((linea = br.readLine()) != null) {
                 String[] valores = linea.split(",");
                 LinkedHashMap<String, String> fila = new LinkedHashMap<>();
-                for (int i = 0; i < valores.length; i++) {
-                    fila.put("Columna" + (i + 1), valores[i]);
+                for (int i = 0; i < encabezados.length && i < valores.length; i++) {
+                    fila.put(encabezados[i].trim(), valores[i].trim()); 
                 }
                 datosArchivo.add(fila);
             }
@@ -92,6 +111,8 @@ public class App {
             System.out.println("Debe leer un archivo primero.");
             return;
         }
+
+    
 
         System.out.print("Seleccione el formato (csv/json/xml): ");
         String formato = sc.nextLine().toLowerCase();
