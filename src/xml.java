@@ -8,10 +8,9 @@ import java.util.*;
 /**
  * Clase para escribir datos en formato XML.
  */
+
 public class xml {
 /**
-     * Escribe una lista de datos a un archivo XML.
-     * 
      * @param datosArchivo Lista de mapas que representan los elementos XML.
      * @param archivoSalida Archivo donde se guardará el XML.
      * @throws IOException Si ocurre un error al escribir el archivo.

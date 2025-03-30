@@ -9,10 +9,9 @@ import java.util.*;
 /**
  * Clase para escribir datos en formato CSV.
  */
+
 public class csv {
-    /**
-     * Escribe una lista de datos a un archivo CSV.
-     * 
+    /** 
      * @param datosArchivo  Lista de mapas que representan las filas del CSV.
      * @param archivoSalida Archivo donde se guardará el CSV.
      * @throws IOException Si ocurre un error al escribir el archivo.
