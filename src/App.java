@@ -1,6 +1,10 @@
+/**
+ * @author Jorge Alegre Maestre
+ * @author Jose María Gutierrez Barrena
+ */
+
 import java.io.*;
 import java.util.*;
-
 public class App {
     private static Scanner sc = new Scanner(System.in);
     private static File carpetaSeleccionada;

@@ -1,7 +1,21 @@
+/**
+ * @author Jorge Alegre Maestre
+ * @author Jose María Gutierrez Barrena
+ */
+
 import java.io.*;
 import java.util.*;
-
+/**
+ * Clase para escribir datos en formato JSON.
+ */
 public class json {
+/**
+     * Escribe una lista de datos a un archivo JSON.
+     * 
+     * @param datosArchivo Lista de mapas que representan los objetos JSON.
+     * @param archivoSalida Archivo donde se guardará el JSON.
+     * @throws IOException Si ocurre un error al escribir el archivo.
+     */
 
     public static void escribirJSON(List<LinkedHashMap<String, String>> datosArchivo, File archivoSalida) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida))) {
